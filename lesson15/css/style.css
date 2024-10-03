@@ -1,0 +1,13 @@
+*{
+    box-sizing: border-box;
+}
+body, html{
+    margin: 0;
+    padding: 0;
+}
+.h1, h1{
+    text-transform:uppercase ;
+}
+.dropdown-menu{
+    min-width: 10rem;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Method Obj</h1>
+    <p>Hiển thị 1 biến</p>
+    <p id="demo"></p>
+    <p>Đối tượng có nhiều giá trị</p>
+    <p id="demo1"></p>
+    <p>Tạo 1 đối tượng rỗng sau đó thêm 4 thuộc tính</p>
+    <p id="demo2"></p>
+    <p>Phương thức có hàm xác định lưu trữ trong giá trị thuộc tính</p>
+    <p id="demo3"></p>
+
+    <script>
+        let car = "Mẹc";
+        document.getElementById("demo").innerHTML = "Anh đón em bằng xe " + car;
+
+        const car1 = {type:"VinFast", model:"V9", color:"blue"};
+        document.getElementById("demo1").innerHTML = "Anh đón em bằng xe " + car1.type + "; chức năng " + car1.model + ", nó có màu " + car1.color + " nhé em!";
+
+        const person = {
+            firstName: "Đan",
+            lastName: "Lê",
+            fullName: function(){
+                return this.firstName + " " + this.lastName;
+            }
+        }
+        person.name = "Lê";
+        person.firstName = "Đan";
+        person.lastName = "Lê"
+        person.age = "21";
+        person.address = "Hải Phòng";
+        person.gender = "nữ";
+
+        delete person.age;
+
+        const x = person;
+        person.birth = 2003;
+
+        document.getElementById("demo2").innerHTML = "Tôi tên là " + person.name + ", tôi " + person.age + ", tôi quê " + person.address + ", giới tính của tôi là " + person.gender;
+        document.getElementById("demo3").innerHTML = "Tôi tên là " + person.fullName() + ", tôi sinh năm " + person.birth;
+        
+    </script>
+</body>
+</html>
