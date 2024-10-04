@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông Tin Sinh Viên</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./app.js">
+    
+</head>
+<body>
+    <div class="container form-container">
+        <h3>Thông Tin Sinh Viên</h3>
+        <form>
+            <div class="form-group">
+                <label for="studentId">Mã sinh viên</label>
+                <input type="text" class="form-control" id="studentId" placeholder="Nhập mã sinh viên">
+            </div>
+            <div class="form-group">
+                <label for="studentName">Tên sinh viên</label>
+                <input type="text" class="form-control" id="studentName" placeholder="Nhập tên sinh viên">
+            </div>
+            <div class="form-group">
+                <label for="studentAge">Tuổi</label>
+                <input type="number" class="form-control" id="studentAge" placeholder="Nhập tuổi sinh viên">
+            </div>
+            <div class="form-group">
+                <label for="studentGender">Giới tính</label>
+                <select class="form-control" id="studentGender">
+                    <option>Nam</option>
+                    <option>Nữ</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="studentDob">Ngày sinh</label>
+                <input type="date" class="form-control" id="studentDob">
+            </div>
+            <div class="form-group">
+                <label for="studentPob">Nơi sinh</label>
+                <input type="text" class="form-control" id="studentPob" placeholder="Nhập nơi sinh">
+            </div>
+            <div class="form-group">
+                <label for="studentAddress">Địa chỉ</label>
+                <input type="text" class="form-control" id="studentAddress" placeholder="Nhập địa chỉ">
+            </div>
+            <!-- Nút Save được đặt ở góc dưới bên trái -->
+            <button type="submit" class="save-btn"> <b><a href="index.html" style="list-style: none;color: #ffffff;">Lưu</a></b></button>
+        </form>
+    </div>
+
+</body>
+</html>

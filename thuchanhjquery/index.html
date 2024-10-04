@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Sinh Viên</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./app.js">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between mb-3">
+            <button class="btn btn-primary"><a href="thongtinsinhvien.html" style="color: #ffffff; text-decoration: none;">Thêm mới sinh viên</a></button>
+            <input type="text" class="form-control w-25" placeholder="Search Here" aria-label="Search">
+            <button class="btn btn-primary" id="searchBtn"><b>Tìm kiếm</b></button>
+            <input type="text" class="form-control w-25" placeholder="Sắp xếp" aria-label="Sort">
+        </div>
+
+        <div class="d3">
+        <h4>Danh sách sinh viên</h4>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Mã sinh viên</th>
+                    <th>Tên sinh viên</th>
+                    <th>Tuổi</th>
+                    <th>Giới tính</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody id="studentTable">
+                <tr>
+                    <td>1</td>
+                    <td>SV001</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>20</td>
+                    <td>Nam</td>
+                    <td class="action-buttons">
+                        <button class="btn btn-info view-btn" data-student='{"id": "SV001", "name": "Nguyễn Văn A", "age": 20, "gender": "Nam"}'>Xem</button>
+                        <button class="btn btn-warning">Sửa</button>
+                        <button class="btn btn-danger">Xóa</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>SV002</td>
+                    <td>Nguyễn Văn B</td>
+                    <td>21</td>
+                    <td>Nữ</td>
+                    <td class="action-buttons">
+                        <button class="btn btn-info view-btn" data-student='{"id": "SV002", "name": "Nguyễn Văn B", "age": 21, "gender": "Nữ"}'>Xem</button>
+                        <button class="btn btn-warning">Sửa</button>
+                        <button class="btn btn-danger">Xóa</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>SV003</td>
+                    <td>Nguyễn Văn C</td>
+                    <td>19</td>
+                    <td>Nam</td>
+                    <td class="action-buttons">
+                        <button class="btn btn-info view-btn" data-student='{"id": "SV003", "name": "Nguyễn Văn C", "age": 19, "gender": "Nam"}'>Xem</button>
+                        <button class="btn btn-warning">Sửa</button>
+                        <button class="btn btn-danger">Xóa</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>SV004</td>
+                    <td>Chung</td>
+                    <td>20</td> <!-- Đã sửa tuổi -->
+                    <td>Nữ</td>
+                    <td class="action-buttons">
+                        <button class="btn btn-info view-btn" data-student='{"id": "SV004", "name": "Chung", "age": 20, "gender": "Nữ"}'>Xem</button>
+                        <button class="btn btn-warning">Sửa</button>
+                        <button class="btn btn-danger">Xóa</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+
+    <!-- Modal cho Thông tin Sinh viên -->
+    <div class="modal fade" id="studentModal" tabindex="-1" role="dialog" aria-labelledby="studentModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="studentModalLabel">Thông tin sinh viên</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Mã sinh viên:</strong> <span id="studentId"></span></p>
+                    <p><strong>Tên sinh viên:</strong> <span id="studentName"></span></p>
+                    <p><strong>Tuổi:</strong> <span id="studentAge"></span></p>
+                    <p><strong>Giới tính:</strong> <span id="studentGender"></span></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Thêm chức năng tìm kiếm
+        $('#searchBtn').click(function() {
+            var searchValue = $('input[placeholder="Search Here"]').val().toLowerCase();
+            $('#studentTable tr').filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(searchValue) > -1);
+            });
+        });
+
+        // Hiện thông tin sinh viên trong modal
+        $('.view-btn').click(function() {
+            var student = $(this).data('student');
+            $('#studentId').text(student.id);
+            $('#studentName').text(student.name);
+            $('#studentAge').text(student.age);
+            $('#studentGender').text(student.gender);
+            $('#studentModal').modal('show');
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+.action-buttons button {
+    margin-right: 5px;
+}
+
+.d3{
+    max-width: auto;
+    margin: 50px auto;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: white;
+}
+.form-container {
+    max-width: 650px;
+    margin: 50px auto;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    position: relative; /* Để vị trí của nút Save có thể được điều chỉnh */
+}
+h3 {
+    text-align: center;
+}
+.form-group label {
+    font-weight: bold;
+}
+/* Chỉnh nút Save nhỏ và đẹp hơn */
+.save-btn {
+    bottom: 20px;
+    left: 20px;
+    font-size: 14px; /* Kích thước chữ vừa phải */
+    padding: 6px 12px; /* Thu nhỏ kích thước nút */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px; /* Bo góc nhẹ cho nút */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu khi hover */
+}
+.save-btn:hover {
+    background-color: #0056b3; /* Màu khi hover */
+}
